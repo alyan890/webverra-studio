@@ -227,7 +227,6 @@ export default function App() {
                     <h3>{p.t}</h3>
                   </div>
                 </div>
-              </div>
               ))}
             </div>
           </section>
