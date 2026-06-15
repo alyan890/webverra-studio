@@ -25,11 +25,30 @@ const Input = ({ label, type = "text", placeholder }) => (
 const Contact = () => {
   return (
     <div className="contact-page" style={{ background: 'var(--bg-transparent)' }}>
+      <style>
+        {`
+          @media (max-width: 1024px) {
+            .contact-grid {
+              gap: 4rem !important;
+            }
+          }
+          @media (max-width: 768px) {
+            .contact-grid {
+              grid-template-columns: 1fr !important;
+              gap: 4rem !important;
+              padding-top: 6rem !important;
+            }
+            .contact-form-box {
+              padding: 2.5rem 1.5rem !important;
+            }
+          }
+        `}
+      </style>
       <section>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '8rem' }}>
+        <div className="container contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '8rem', paddingTop: '4rem' }}>
           <div>
-            <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '2rem' }}>Let's build the <span className="text-orange">future</span> together.</h1>
-            <p style={{ opacity: 0.6, fontSize: '1.2rem', maxWidth: '500px', marginBottom: '4rem' }}>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', marginBottom: '2rem' }}>Let's build the <span className="text-orange">future</span> together.</h1>
+            <p style={{ opacity: 0.6, fontSize: '1.1rem', maxWidth: '500px', marginBottom: '4rem' }}>
               Have a project in mind? We'd love to hear from you. Drop us a line and let's start a conversation.
             </p>
             
@@ -46,7 +65,7 @@ const Contact = () => {
           </div>
           
           <motion.div
-            className="glass-box"
+            className="glass-box contact-form-box"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}

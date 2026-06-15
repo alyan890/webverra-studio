@@ -5,7 +5,25 @@ import MagneticButton from './MagneticButton';
 const CTA = () => {
   return (
     <section className="cta" style={{ background: 'var(--bg-transparent)', padding: '10rem 5%' }}>
-      <div className="container" style={{ 
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .cta-container {
+              padding: 4rem 1.5rem !important;
+              border-radius: 30px !important;
+            }
+            .cta-title-main {
+              font-size: 2.2rem !important;
+              margin-bottom: 1rem !important;
+            }
+            .cta-text {
+              font-size: 1rem !important;
+              margin-bottom: 2rem !important;
+            }
+          }
+        `}
+      </style>
+      <div className="container cta-container" style={{ 
         background: 'var(--accent)', 
         padding: '8rem 2rem', 
         borderRadius: '60px', 
@@ -20,10 +38,10 @@ const CTA = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
-          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', marginBottom: '1.5rem', fontWeight: 500 }}>
+          <h2 className="cta-title-main" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', marginBottom: '1.5rem', fontWeight: 500 }}>
             Ready to build <br/> something iconic?
           </h2>
-          <p style={{ fontSize: '1.2rem', opacity: 0.8, marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
+          <p className="cta-text" style={{ fontSize: '1.2rem', opacity: 0.8, marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
             Let's collaborate to create digital experiences that set your brand apart from the rest.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center' }}>

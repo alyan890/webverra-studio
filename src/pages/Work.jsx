@@ -12,7 +12,23 @@ const projects = [
 
 const Work = () => {
   return (
-    <div className="work-page" style={{ background: 'var(--bg-transparent)' }}>
+    <div className="work-page" style={{ background: 'var(--bg-transparent)', paddingTop: '8rem' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .work-grid {
+              grid-template-columns: 1fr !important;
+              gap: 2rem !important;
+            }
+            .work-card-img {
+              height: 300px !important;
+            }
+            .work-card-title {
+              font-size: 1.5rem !important;
+            }
+          }
+        `}
+      </style>
       <section>
         <div className="container">
           <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '1rem' }}>Our Work</h1>
@@ -20,9 +36,9 @@ const Work = () => {
             A showcase of digital products and immersive experiences we've crafted for forward-thinking brands.
           </p>
           
-          <div style={{ 
+          <div className="work-grid" style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
             gap: '3rem' 
           }}>
             {projects.map((p, i) => (
@@ -34,7 +50,7 @@ const Work = () => {
                   cursor: 'pointer'
                 }}
               >
-                <div style={{ 
+                <div className="work-card-img" style={{ 
                   height: '450px', 
                   background: p.grad, 
                   overflow: 'hidden',
@@ -45,7 +61,7 @@ const Work = () => {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     style={{ width: '100%', height: '100%' }}
                   />
-                  <div style={{ position: 'absolute', top: '2rem', right: '2rem' }}>
+                  <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem' }}>
                     <span style={{ 
                       padding: '0.5rem 1rem', 
                       background: 'rgba(255,255,255,0.1)', 
@@ -60,8 +76,8 @@ const Work = () => {
                     </span>
                   </div>
                 </div>
-                <div style={{ padding: '2.5rem' }}>
-                  <h3 style={{ fontSize: '1.8rem', fontWeight: 500 }}>{p.t}</h3>
+                <div style={{ padding: '2rem' }}>
+                  <h3 className="work-card-title" style={{ fontSize: '1.8rem', fontWeight: 500 }}>{p.t}</h3>
                   <p style={{ opacity: 0.4, marginTop: '0.5rem', fontSize: '0.9rem' }}>View Case Study</p>
                 </div>
               </motion.div>

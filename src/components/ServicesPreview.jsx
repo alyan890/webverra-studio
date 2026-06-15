@@ -40,6 +40,19 @@ const Card = ({ s, i }) => {
 const ServicesPreview = () => {
   return (
     <section id="services" style={{ background: 'var(--bg-transparent)' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .services-grid {
+              grid-template-columns: 1fr !important;
+              gap: 1.5rem !important;
+            }
+            .service-card {
+              padding: 2.5rem 2rem !important;
+            }
+          }
+        `}
+      </style>
       <div className="container">
         <div className="section-head" style={{ marginBottom: '5rem' }}>
           <span className="accent-label" style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>Services</span>
@@ -48,7 +61,7 @@ const ServicesPreview = () => {
         
         <div className="services-grid" style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '2rem' 
         }}>
           {services.map((s, i) => (

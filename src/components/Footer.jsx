@@ -8,9 +8,39 @@ const Footer = () => {
       background: 'var(--white)', 
       borderTop: '1px solid var(--line)' 
     }}>
-      <div className="container" style={{ 
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .footer-grid {
+              grid-template-columns: 1fr 1fr !important;
+              gap: 3rem 2rem !important;
+            }
+            .f-info {
+              grid-column: span 2;
+            }
+            .footer-bottom {
+              flex-direction: column;
+              gap: 1.5rem;
+              text-align: center;
+              align-items: center;
+            }
+            .footer-bottom-links {
+              gap: 1.5rem !important;
+            }
+          }
+          @media (max-width: 480px) {
+            .footer-grid {
+              grid-template-columns: 1fr !important;
+            }
+            .f-info {
+              grid-column: span 1;
+            }
+          }
+        `}
+      </style>
+      <div className="container footer-grid" style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
         gap: '4rem' 
       }}>
         <div className="f-info">
@@ -47,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="container" style={{ 
+      <div className="container footer-bottom" style={{ 
         marginTop: '6rem', 
         paddingTop: '2rem', 
         borderTop: '1px solid var(--line)',
@@ -57,7 +87,7 @@ const Footer = () => {
         opacity: 0.5
       }}>
         <p>© {new Date().getFullYear()} WEBVERRA STUDIO. ALL RIGHTS RESERVED.</p>
-        <div style={{ display: 'flex', gap: '2rem' }}>
+        <div className="footer-bottom-links" style={{ display: 'flex', gap: '2rem' }}>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
         </div>

@@ -4,8 +4,33 @@ import { motion } from 'framer-motion';
 const About = () => {
   return (
     <div className="about-page" style={{ background: 'var(--bg-transparent)' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .about-hero {
+              height: auto !important;
+              padding-top: 8rem !important;
+              padding-bottom: 4rem !important;
+            }
+            .story-grid {
+              grid-template-columns: 1fr !important;
+              gap: 3rem !important;
+            }
+            .story-img {
+              height: 300px !important;
+            }
+            .values-grid {
+              grid-template-columns: 1fr !important;
+              gap: 1.5rem !important;
+            }
+            .value-box {
+              padding: 2rem !important;
+            }
+          }
+        `}
+      </style>
       {/* Hero Section */}
-      <section style={{ height: '70vh', display: 'flex', alignItems: 'center' }}>
+      <section className="about-hero" style={{ height: '70vh', display: 'flex', alignItems: 'center' }}>
         <div className="container">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -27,7 +52,7 @@ const About = () => {
 
       {/* Story Section */}
       <section style={{ background: '#fff' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '6rem', alignItems: 'center' }}>
+        <div className="container story-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '6rem', alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Our Story</h2>
             <p style={{ opacity: 0.7, fontSize: '1.1rem', marginBottom: '1.5rem' }}>
@@ -37,14 +62,14 @@ const About = () => {
               Our team of multidisciplinary designers and developers works at the intersection of creativity and technology, pushing the boundaries of what's possible in the browser.
             </p>
           </div>
-          <div style={{ height: '500px', background: 'var(--secondary)', borderRadius: '40px' }} />
+          <div className="story-img" style={{ height: '500px', background: 'var(--secondary)', borderRadius: '40px' }} />
         </div>
       </section>
 
       {/* Mission & Values */}
       <section>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem' }}>
+          <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem' }}>
             {[
               { t: 'Innovation', d: 'We never settle for the ordinary. We constantly explore new technologies.' },
               { t: 'Elegance', d: 'Design is not just how it looks, but how it feels. We prioritize refined aesthetics.' },
@@ -58,7 +83,7 @@ const About = () => {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
                 style={{ padding: '3rem' }}
-                className="glass-box"
+                className="glass-box value-box"
               >
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 500 }}>{v.t}</h3>
                 <p style={{ opacity: 0.6, fontSize: '0.9rem' }}>{v.d}</p>

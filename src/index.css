@@ -27,11 +27,29 @@
   --section-padding: 10rem 5%;
 }
 
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 8rem 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 6rem 5%;
+  }
+}
+
 .glass-box {
   background: var(--glass-effect);
   backdrop-filter: var(--glass-blur);
   border: var(--glass-border);
   border-radius: 40px;
+}
+
+@media (max-width: 768px) {
+  .glass-box {
+    border-radius: 24px;
+  }
 }
 
 * {
@@ -84,11 +102,18 @@ section {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
+  width: 100%;
 }
 
 /* --- UTILITIES --- */
 .text-orange { color: var(--accent); }
 .bg-white { background-color: var(--white); }
+
+.mobile-only { display: none; }
+@media (max-width: 768px) {
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
+}
 
 /* --- BUTTONS --- */
 .btn {
@@ -102,7 +127,16 @@ section {
   cursor: pointer;
   transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
+  white-space: nowrap;
 }
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
 
 .btn-primary {
   background: var(--grad);

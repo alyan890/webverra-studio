@@ -35,8 +35,28 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+    <section className="hero" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .hero-content {
+              padding-top: 4rem;
+            }
+            .hero-buttons {
+              flex-direction: column;
+              gap: 1rem !important;
+            }
+            .hero-buttons > div, .hero-buttons a {
+              width: 100%;
+            }
+            .hero-buttons .btn {
+              width: 100%;
+              justify-content: center;
+            }
+          }
+        `}
+      </style>
+      <div className="container hero-content" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           variants={container}
           initial="hidden"
@@ -52,7 +72,7 @@ const Hero = () => {
             WebVerra Studio — 2026
           </motion.span>
           
-          <h1 style={{ fontSize: 'clamp(3.5rem, 10vw, 7.5rem)', marginBottom: '2.5rem' }}>
+          <h1 style={{ fontSize: 'clamp(2.8rem, 9vw, 7.5rem)', marginBottom: '2.5rem' }}>
             {sentence.map((word, index) => (
               <motion.span
                 variants={child}
@@ -68,7 +88,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 1 }}
-            style={{ fontSize: '1.2rem', maxWidth: '600px', marginBottom: '3.5rem', opacity: 0.7 }}
+            style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', maxWidth: '600px', marginBottom: '3.5rem', opacity: 0.7 }}
           >
             WebVerra Studio crafts high performance websites, immersive 3D experiences and digital products for brands that want to lead the future.
           </motion.p>
@@ -77,6 +97,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8, duration: 1 }}
+            className="hero-buttons"
             style={{ display: 'flex', gap: '1.5rem' }}
           >
             <MagneticButton>

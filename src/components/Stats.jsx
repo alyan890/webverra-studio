@@ -16,13 +16,13 @@ const Counter = ({ value, label }) => {
 
   return (
     <div ref={ref} className="stat-item" style={{ textAlign: 'center' }}>
-      <h3 style={{ fontSize: '4rem', fontWeight: 300, marginBottom: '0.5rem' }}>
+      <h3 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: 300, marginBottom: '0.5rem' }}>
         <motion.span>{displayValue}</motion.span>
         {label.includes('+') ? '+' : ''}
         {label.includes('%') ? '%' : ''}
         {label.includes('M') ? 'M+' : ''}
       </h3>
-      <p style={{ fontSize: '0.8rem', fontWeight: 600, opacity: 0.4, letterSpacing: '1px' }}>
+      <p style={{ fontSize: '0.7rem', fontWeight: 600, opacity: 0.4, letterSpacing: '1px' }}>
         {label.replace(/[+%M]/g, '')}
       </p>
     </div>
@@ -39,7 +39,23 @@ const Stats = () => {
 
   return (
     <section className="stats" style={{ background: 'var(--bg-transparent)', padding: '6rem 5%' }}>
-      <div className="container glass-box" style={{ 
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .stats-container {
+              padding: 3rem 1.5rem !important;
+              gap: 2rem !important;
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+          @media (max-width: 480px) {
+            .stats-container {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}
+      </style>
+      <div className="container glass-box stats-container" style={{ 
         display: 'grid', 
         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
         gap: '4rem',

@@ -18,11 +18,30 @@ const Process = () => {
   });
 
   return (
-    <div className="process-page" style={{ background: 'var(--bg-transparent)' }}>
+    <div className="process-page" style={{ background: 'var(--bg-transparent)', paddingTop: '8rem' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .process-steps-container {
+              gap: 4rem !important;
+            }
+            .process-step {
+              gap: 2rem !important;
+            }
+            .process-step-title {
+              font-size: 1.8rem !important;
+              margin-bottom: 0.8rem !important;
+            }
+            .process-hero-text {
+              margin-bottom: 4rem !important;
+            }
+          }
+        `}
+      </style>
       <section>
         <div className="container">
           <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '1rem' }}>Our Process</h1>
-          <p style={{ opacity: 0.6, fontSize: '1.2rem', maxWidth: '600px', marginBottom: '8rem' }}>
+          <p className="process-hero-text" style={{ opacity: 0.6, fontSize: '1.2rem', maxWidth: '600px', marginBottom: '8rem' }}>
             A disciplined approach to creativity. We follow a proven methodology to deliver world-class digital products.
           </p>
           
@@ -53,7 +72,7 @@ const Process = () => {
               }} 
             />
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
+            <div className="process-steps-container" style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
               {steps.map((s, i) => (
                 <motion.div
                   key={i}
@@ -61,6 +80,7 @@ const Process = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
+                  className="process-step"
                   style={{ display: 'flex', gap: '4rem', position: 'relative', zIndex: 2 }}
                 >
                   <div style={{ 
@@ -79,7 +99,7 @@ const Process = () => {
                   
                   <div>
                     <span style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '0.8rem', marginBottom: '1rem', display: 'block' }}>{s.n}</span>
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontWeight: 500 }}>{s.t}</h3>
+                    <h3 className="process-step-title" style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontWeight: 500 }}>{s.t}</h3>
                     <p style={{ fontSize: '1.1rem', opacity: 0.6, lineHeight: '1.7' }}>{s.d}</p>
                   </div>
                 </motion.div>

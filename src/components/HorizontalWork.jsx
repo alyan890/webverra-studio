@@ -11,6 +11,30 @@ const projects = [
 const VerticalWork = () => {
   return (
     <section className="vertical-work" style={{ background: 'var(--bg-transparent)', padding: '10rem 5%' }}>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .work-item {
+              flex-direction: column !important;
+              gap: 1.5rem !important;
+              padding: 1.5rem !important;
+            }
+            .work-img {
+              width: 100% !important;
+              height: 250px !important;
+            }
+            .work-title {
+              font-size: 1.8rem !important;
+            }
+            .cta-box {
+              padding: 3rem 1.5rem !important;
+            }
+            .cta-title {
+              font-size: 1.8rem !important;
+            }
+          }
+        `}
+      </style>
       <div className="container">
         <div style={{ marginBottom: '5rem' }}>
           <span className="accent-label" style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>Selected Work</span>
@@ -21,7 +45,7 @@ const VerticalWork = () => {
           {projects.map((p, i) => (
             <motion.div
               key={i}
-              className="glass-box"
+              className="glass-box work-item"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -34,7 +58,7 @@ const VerticalWork = () => {
                 padding: '2rem'
               }}
             >
-              <div style={{ 
+              <div className="work-img" style={{ 
                 width: '400px', 
                 height: '300px', 
                 background: p.grad, 
@@ -43,14 +67,14 @@ const VerticalWork = () => {
               }} />
               <div>
                 <span style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', color: 'var(--accent)', marginBottom: '0.5rem', display: 'block' }}>{p.cat}</span>
-                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{p.t}</h3>
+                <h3 className="work-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{p.t}</h3>
                 <a href="/work" className="btn btn-outline" style={{ marginTop: '1rem' }}>View Case Study</a>
               </div>
             </motion.div>
           ))}
           
-          <div className="glass-box" style={{ padding: '4rem', textAlign: 'center', marginTop: '3rem' }}>
-            <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Ready to push boundaries?</h3>
+          <div className="glass-box cta-box" style={{ padding: '4rem', textAlign: 'center', marginTop: '3rem' }}>
+            <h3 className="cta-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Ready to push boundaries?</h3>
             <p style={{ fontSize: '1.1rem', opacity: 0.7, marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>We combine engineering precision with design excellence to build the next generation of digital products.</p>
             <a href="/work" className="btn btn-primary">View All Work</a>
           </div>
