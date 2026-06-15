@@ -18,7 +18,7 @@ const Process = () => {
   });
 
   return (
-    <div className="process-page" style={{ background: 'var(--bg)' }}>
+    <div className="process-page" style={{ background: 'var(--bg-transparent)' }}>
       <section>
         <div className="container">
           <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '1rem' }}>Our Process</h1>

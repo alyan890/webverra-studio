@@ -4,7 +4,7 @@ import MagneticButton from './MagneticButton';
 
 const CTA = () => {
   return (
-    <section className="cta" style={{ background: 'var(--bg)', padding: '10rem 5%' }}>
+    <section className="cta" style={{ background: 'var(--bg-transparent)', padding: '10rem 5%' }}>
       <div className="container" style={{ 
         background: 'var(--accent)', 
         padding: '8rem 2rem', 

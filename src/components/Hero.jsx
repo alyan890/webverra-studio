@@ -35,8 +35,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'var(--bg)' }}>
-      <div className="container">
+    <section className="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           variants={container}
           initial="hidden"
@@ -97,7 +97,7 @@ const Hero = () => {
         width: '40vw',
         height: '40vw',
         background: 'radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, transparent 70%)',
-        zIndex: -1,
+        zIndex: 0,
         filter: 'blur(100px)'
       }} />
     </section>

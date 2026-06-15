@@ -11,7 +11,7 @@ const ServiceSection = ({ s, i }) => {
   const isEven = i % 2 === 0;
 
   return (
-    <section style={{ background: isEven ? 'var(--bg)' : '#fff' }}>
+    <section style={{ background: isEven ? 'var(--bg-transparent)' : '#fff' }}>
       <div className="container" style={{ 
         display: 'grid', 
         gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 

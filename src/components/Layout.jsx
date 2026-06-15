@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import CustomCursor from './CustomCursor';
 import Footer from './Footer';
+import ParticleBackground from './ParticleBackground';
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -40,7 +41,8 @@ const Layout = ({ children }) => {
   }, [location.pathname]);
 
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ position: 'relative' }}>
+      <ParticleBackground />
       <CustomCursor />
       <Navbar />
       

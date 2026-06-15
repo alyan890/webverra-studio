@@ -24,7 +24,7 @@ const Input = ({ label, type = "text", placeholder }) => (
 
 const Contact = () => {
   return (
-    <div className="contact-page" style={{ background: 'var(--bg)' }}>
+    <div className="contact-page" style={{ background: 'var(--bg-transparent)' }}>
       <section>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '8rem' }}>
           <div>
@@ -46,10 +46,11 @@ const Contact = () => {
           </div>
           
           <motion.div
+            className="glass-box"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            style={{ padding: '4rem', background: '#fff', borderRadius: '40px', border: '1px solid var(--line)' }}
+            style={{ padding: '4rem' }}
           >
             <form onSubmit={(e) => e.preventDefault()}>
               <Input label="Your Name" placeholder="John Doe" />

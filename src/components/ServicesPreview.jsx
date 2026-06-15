@@ -21,12 +21,9 @@ const Card = ({ s, i }) => {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="service-card"
+      className="service-card glass-box"
       style={{
-        background: 'var(--white)',
         padding: '3.5rem 2.5rem',
-        borderRadius: '30px',
-        border: '1px solid var(--line)',
         transition: '0.4s cubic-bezier(0.16, 1, 0.3, 1)'
       }}
       whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }}
@@ -42,7 +39,7 @@ const Card = ({ s, i }) => {
 
 const ServicesPreview = () => {
   return (
-    <section id="services" style={{ background: 'var(--bg)' }}>
+    <section id="services" style={{ background: 'var(--bg-transparent)' }}>
       <div className="container">
         <div className="section-head" style={{ marginBottom: '5rem' }}>
           <span className="accent-label" style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>Services</span>

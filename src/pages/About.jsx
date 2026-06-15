@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <div className="about-page" style={{ background: 'var(--bg)' }}>
+    <div className="about-page" style={{ background: 'var(--bg-transparent)' }}>
       {/* Hero Section */}
       <section style={{ height: '70vh', display: 'flex', alignItems: 'center' }}>
         <div className="container">
@@ -57,7 +57,8 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                style={{ padding: '3rem', background: '#fff', borderRadius: '30px', border: '1px solid var(--line)' }}
+                style={{ padding: '3rem' }}
+                className="glass-box"
               >
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 500 }}>{v.t}</h3>
                 <p style={{ opacity: 0.6, fontSize: '0.9rem' }}>{v.d}</p>

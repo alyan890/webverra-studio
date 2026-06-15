@@ -1,12 +1,19 @@
 :root {
   /* Colors */
   --bg: #FAFAFA;
+  /* Updated to orange tint for glass effect */
+  --bg-transparent: rgba(255, 245, 235, 0.7); 
   --text: #0A0A0A;
   --accent: #FF6B00;
   --secondary: #F0F0F0;
   --white: #FFFFFF;
-  --line: rgba(0, 0, 0, 0.08);
-  --glass: rgba(250, 250, 250, 0.8);
+  --line: rgba(255, 107, 0, 0.15); /* Orange tinted lines */
+  --glass: rgba(255, 245, 235, 0.8);
+  
+  /* Glass Morphism Utility */
+  --glass-effect: rgba(255, 255, 255, 0.5);
+  --glass-border: 1px solid rgba(255, 107, 0, 0.2);
+  --glass-blur: blur(20px);
   
   /* Gradients */
   --grad: linear-gradient(135deg, #FF6B00 0%, #FF9A00 100%);
@@ -20,6 +27,13 @@
   --section-padding: 10rem 5%;
 }
 
+.glass-box {
+  background: var(--glass-effect);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 40px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +43,7 @@
 html, body {
   width: 100%;
   height: 100%;
-  background-color: var(--bg);
+  background-color: transparent;
   color: var(--text);
   font-family: var(--font-body);
   font-weight: 400;
@@ -153,9 +167,4 @@ html.lenis {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s, background-color 0.3s;
-}
-
-@media (max-width: 768px) {
-  .custom-cursor, .cursor-follower { display: none; }
-  :root { --section-padding: 6rem 5%; }
 }

@@ -12,7 +12,7 @@ const projects = [
 
 const Work = () => {
   return (
-    <div className="work-page" style={{ background: 'var(--bg)' }}>
+    <div className="work-page" style={{ background: 'var(--bg-transparent)' }}>
       <section>
         <div className="container">
           <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '1rem' }}>Our Work</h1>
@@ -28,15 +28,9 @@ const Work = () => {
             {projects.map((p, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true }}
+                className="glass-box"
                 style={{ 
-                  borderRadius: '40px', 
                   overflow: 'hidden', 
-                  background: '#fff', 
-                  border: '1px solid var(--line)',
                   cursor: 'pointer'
                 }}
               >

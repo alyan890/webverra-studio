@@ -38,15 +38,12 @@ const Stats = () => {
   ];
 
   return (
-    <section className="stats" style={{ background: 'var(--bg)', padding: '6rem 5%' }}>
-      <div className="container" style={{ 
+    <section className="stats" style={{ background: 'var(--bg-transparent)', padding: '6rem 5%' }}>
+      <div className="container glass-box" style={{ 
         display: 'grid', 
         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
         gap: '4rem',
-        padding: '6rem',
-        background: '#fff',
-        borderRadius: '40px',
-        border: '1px solid var(--line)'
+        padding: '6rem'
       }}>
         {stats.map((s, i) => (
           <Counter key={i} value={s.n} label={s.l} />

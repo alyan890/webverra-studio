@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const projects = [
   { t: 'NovaPay Finance', cat: 'FINTECH', grad: 'linear-gradient(135deg, #1e293b, #0f172a)' },
@@ -8,53 +8,56 @@ const projects = [
   { t: 'Lumina Health', cat: 'HEALTHCARE', grad: 'linear-gradient(135deg, #1e1b4b, #000)' }
 ];
 
-const HorizontalWork = () => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-
+const VerticalWork = () => {
   return (
-    <section ref={targetRef} style={{ height: '300vh', position: 'relative', background: 'var(--bg)', padding: '0' }}>
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
-        <div className="container" style={{ position: 'absolute', top: '10%', left: '5%' }}>
+    <section className="vertical-work" style={{ background: 'var(--bg-transparent)', padding: '10rem 5%' }}>
+      <div className="container">
+        <div style={{ marginBottom: '5rem' }}>
           <span className="accent-label" style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>Selected Work</span>
-          <h2 style={{ fontSize: '3.5rem' }}>Featured Cases</h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>Featured Cases</h2>
         </div>
         
-        <motion.div style={{ x, display: 'flex', gap: '4rem', paddingLeft: '5%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           {projects.map((p, i) => (
             <motion.div
               key={i}
+              className="glass-box"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.2 }}
               style={{
-                width: '600px',
-                height: '400px',
-                background: p.grad,
-                borderRadius: '40px',
-                flexShrink: 0,
-                position: 'relative',
-                overflow: 'hidden',
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                padding: '3rem'
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: '3rem',
+                padding: '2rem'
               }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div style={{ zIndex: 2 }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '2px', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', display: 'block' }}>{p.cat}</span>
-                <h3 style={{ fontSize: '2rem', color: '#fff', fontWeight: 500 }}>{p.t}</h3>
+              <div style={{ 
+                width: '400px', 
+                height: '300px', 
+                background: p.grad, 
+                borderRadius: '30px',
+                flexShrink: 0
+              }} />
+              <div>
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', color: 'var(--accent)', marginBottom: '0.5rem', display: 'block' }}>{p.cat}</span>
+                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{p.t}</h3>
+                <a href="/work" className="btn btn-outline" style={{ marginTop: '1rem' }}>View Case Study</a>
               </div>
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', zIndex: 1 }} />
             </motion.div>
           ))}
-        </motion.div>
+          
+          <div className="glass-box" style={{ padding: '4rem', textAlign: 'center', marginTop: '3rem' }}>
+            <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Ready to push boundaries?</h3>
+            <p style={{ fontSize: '1.1rem', opacity: 0.7, marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>We combine engineering precision with design excellence to build the next generation of digital products.</p>
+            <a href="/work" className="btn btn-primary">View All Work</a>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default HorizontalWork;
+export default VerticalWork;
